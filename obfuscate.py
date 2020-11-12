@@ -1,8 +1,8 @@
-import os
 from random import choice
 import string
 import random
 
+# Change this to whatever program you want to startup
 goal = "start C:/WINDOWS/System32/calc.exe"
 
 random_strings = []
@@ -12,9 +12,8 @@ final_command = []
 # Create a list of random strings. Length ranges from 5-10
 def create_random_strings(min_length=5, max_length=10):
     while True:
-        length = random.randrange(min_length, max_length)
         word = ''
-        for _ in range(length):
+        for _ in range(random.randrange(min_length, max_length)):
             this_choice = random.choice(list_of_characters)
             word += this_choice
         if word not in random_strings:
@@ -44,5 +43,6 @@ def pick_definitions(choices):
 create_random_strings()
 final_command = pick_definitions(random_strings)
 
+# Write the final command to the end of the file
 with open('payload.bat', 'a') as payload:
     payload.write(final_command)
