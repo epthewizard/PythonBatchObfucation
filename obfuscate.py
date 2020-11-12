@@ -9,6 +9,7 @@ random_strings = []
 list_of_characters = string.ascii_lowercase
 final_command = []
 
+# Create a list of random strings. Length ranges from 5-10
 def create_random_strings(min_length=5, max_length=10):
     while True:
         length = random.randrange(min_length, max_length)
@@ -24,19 +25,20 @@ def create_random_strings(min_length=5, max_length=10):
     print(random_strings)
 
 def pick_definitions(choices):
-    with open('payload.bat', 'a') as first:
+    # There is definitely a better way to do this but I was lazy
+    with open('payload.bat', 'a') as file:
         start = random.choice(choices)
         second = random.choice(choices)
         third = random.choice(choices)
-        first.write(f"set {start}=set\n")
-        first.write(f"%{start}% {second}= \n")
-        first.write(f"%{start}%%{second}%{third}==\n")
-    for x in goal:
-        remove = random.choice(choices)
-        with open('payload.bat', 'a') as handle:
-            handle.write(f"%{start}%%{second}%{remove}%{third}%{x}\n")
-        final_command.append(f"%{remove}%")
-        choices.remove(remove)
+        file.write(f"set {start}=set\n")
+        file.write(f"%{start}% {second}= \n")
+        file.write(f"%{start}%%{second}%{third}==\n")
+    # Set random variables equal to each letter in goal
+        for x in goal:
+            remove = random.choice(choices)
+            file.write(f"%{start}%%{second}%{remove}%{third}%{x}\n")
+            final_command.append(f"%{remove}%")
+            choices.remove(remove)
     return ''.join(final_command)
 
 create_random_strings()
