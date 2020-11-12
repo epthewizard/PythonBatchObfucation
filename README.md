@@ -1,5 +1,3 @@
-# PythonBatchObfucation
-
 # Python Batch Obscutation
 Running this file creates a Windows batch file called "payload.bat". This file will set obfuscated batch variables equal to the `goal` object in the file. It is currently set to launch the calculator as a proof of concept.
 
