@@ -8,6 +8,7 @@ Just clone the repository and change the 'goal' variable to whichever program yo
 ### Running the Program 
 
 `python3 obfuscate.py`
+
 ![obfuscate.py](calculator.png)
 
 ### .bat Result:
