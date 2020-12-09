@@ -14,3 +14,9 @@ Just clone the repository and change the 'goal' variable to whichever program yo
 ### .bat Result:
 ![payload.bat](payload-bat.png)
 
+### Additional Ideas 
+
+If you want to obfuscate further, you can edit the obfuscate.py file to your preferences then run a program like [pyarmor](https://pypi.org/project/pyarmor/) on it. The result will be:
+
+![pyarmor](pyarmor.png)
+
